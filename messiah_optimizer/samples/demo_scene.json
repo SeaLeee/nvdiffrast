@@ -1,0 +1,73 @@
+{
+  "scene_name": "Demo_PBR_Sphere",
+  "meshes": [
+    {
+      "name": "Sphere_HighPoly",
+      "vertex_count": 40962,
+      "triangle_count": 81920,
+      "bounds": {
+        "min": [-1.0, -1.0, -1.0],
+        "max": [1.0, 1.0, 1.0]
+      }
+    },
+    {
+      "name": "Ground_Plane",
+      "vertex_count": 4,
+      "triangle_count": 2,
+      "bounds": {
+        "min": [-5.0, 0.0, -5.0],
+        "max": [5.0, 0.0, 5.0]
+      }
+    }
+  ],
+  "materials": [
+    {
+      "name": "M_Chrome",
+      "shading_model": "DefaultLit",
+      "shading_model_id": 1,
+      "base_color": [0.9, 0.9, 0.92],
+      "roughness": 0.15,
+      "metallic": 1.0,
+      "textures": {
+        "base_color": "textures/chrome_basecolor.png",
+        "normal": "textures/chrome_normal.png",
+        "roughness": "textures/chrome_roughness.png"
+      }
+    },
+    {
+      "name": "M_Ground",
+      "shading_model": "DefaultLit",
+      "shading_model_id": 1,
+      "base_color": [0.3, 0.3, 0.3],
+      "roughness": 0.8,
+      "metallic": 0.0
+    }
+  ],
+  "cameras": [
+    {
+      "name": "MainCamera",
+      "fov": 45,
+      "near": 0.1,
+      "far": 100.0,
+      "position": [3.0, 2.0, 3.0],
+      "target": [0.0, 0.5, 0.0]
+    }
+  ],
+  "lights": [
+    {
+      "name": "Sun",
+      "type": "directional",
+      "direction": [-0.5, -1.0, -0.3],
+      "color": [1.0, 0.98, 0.95],
+      "intensity": 3.0
+    },
+    {
+      "name": "FillLight",
+      "type": "point",
+      "position": [-2.0, 3.0, 1.0],
+      "color": [0.6, 0.7, 1.0],
+      "intensity": 1.5,
+      "radius": 10.0
+    }
+  ]
+}

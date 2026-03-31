@@ -1,0 +1,38 @@
+# Messiah Engine BRDF Parameter Mapping
+# Corresponds to EngineShaders/Include/BRDF.fxh
+
+brdf:
+  diffuse_model: "lambert"        # lambert | burley | oren_nayar
+  distribution: "ggx"             # blinn | beckmann | ggx
+  geometry: "schlick_disney"      # implicit | neumann | kelemen | schlick | smith | schlick_disney
+  fresnel: "schlick"              # none | schlick | fresnel
+  min_roughness: 0.08
+  min_roughness_mobile: 0.12
+
+shading_models:
+  0:  { name: "Unlit",               has_specular: false }
+  1:  { name: "DefaultLit",          has_specular: true  }
+  2:  { name: "PreintegratedSkin",    has_specular: true,  subsurface: true }
+  3:  { name: "SSS",                 has_specular: true,  subsurface: true }
+  4:  { name: "Hair",                has_specular: true,  anisotropic: true }
+  5:  { name: "Fur",                 has_specular: true  }
+  6:  { name: "Velvet",              has_specular: true  }
+  7:  { name: "Eye",                 has_specular: true  }
+  9:  { name: "TwoSidedFoliage",     has_specular: true,  two_sided: true }
+  10: { name: "Cloth",               has_specular: true  }
+  11: { name: "Silk",                has_specular: true,  anisotropic: true }
+  12: { name: "ImprovedLit",         has_specular: true  }
+  13: { name: "FastSSS",             has_specular: true,  subsurface: true }
+  14: { name: "Window",              has_specular: true  }
+  15: { name: "Water",               has_specular: true  }
+  16: { name: "MicroReflect",        has_specular: true  }
+  17: { name: "ClearCoat",           has_specular: true,  clear_coat: true }
+  18: { name: "GlossySheer",         has_specular: true  }
+  19: { name: "AnisoSilk",           has_specular: true,  anisotropic: true }
+
+# Constants matching Messiah engine
+constants:
+  sun_radius: 4500.0
+  sun_distance: 200000.0
+  dielectric_f0: 0.04
+  energy_normalization_range: [0.08, 0.2]

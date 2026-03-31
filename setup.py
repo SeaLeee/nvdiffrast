@@ -44,10 +44,11 @@ setuptools.setup(
                 "csrc/torch/torch_texture.cpp",
             ],
             extra_compile_args={
-                "cxx": ["-DNVDR_TORCH"]
+                "cxx": ["-DNVDR_TORCH", "-D_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH"]
                 # Disable warnings in torch headers.
                 + (["/wd4067", "/wd4624", "/wd4996"] if os.name == "nt" else []),
-                "nvcc": ["-DNVDR_TORCH", "-lineinfo"],
+                "nvcc": ["-DNVDR_TORCH", "-lineinfo", "--allow-unsupported-compiler",
+                         "-Xcompiler", "-D_ALLOW_COMPILER_AND_STL_VERSION_MISMATCH"],
             },
         )
     ],

@@ -1,0 +1,4 @@
+bridge:
+  engine_bat: Messiah_Editor.bat
+  engine_root: D:/NewTrunk/Engine/src/Engine
+  port: 9800

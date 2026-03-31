@@ -6,6 +6,8 @@
 # distribution of this software and related documentation without an express
 # license agreement from NVIDIA CORPORATION is strictly prohibited.
 
-from importlib.metadata import version
-
-__version__ = version(__package__ or 'nvdiffrast')
+try:
+    from importlib.metadata import version
+    __version__ = version(__package__ or 'nvdiffrast')
+except Exception:
+    __version__ = '0.4.0'

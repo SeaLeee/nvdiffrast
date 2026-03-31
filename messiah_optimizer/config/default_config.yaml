@@ -1,0 +1,48 @@
+# NvDiffRast Messiah Optimizer - Default Configuration
+
+rendering:
+  resolution: [1024, 1024]
+  device: "cuda"
+  min_roughness: 0.08
+
+optimization:
+  texture:
+    learning_rate: 0.01
+    scheduler: "cosine"       # cosine | step | exponential
+    max_iterations: 5000
+    target_resolution: [256, 256]
+    loss_weights:
+      l2: 1.0
+      perceptual: 0.1
+      ssim: 0.05
+      smoothness: 0.001
+    num_views: 16             # multi-view camera count
+
+  material:
+    learning_rate: 0.01
+    max_iterations: 2000
+    parameters:
+      - roughness
+      - metallic
+      - emission_strength
+
+  shader:
+    learning_rate: 0.005
+    max_iterations: 3000
+    loss_weights:
+      l2: 1.0
+      perceptual: 0.2
+      ssim: 0.1
+
+bridge:
+  host: "127.0.0.1"
+  port: 9800
+  timeout: 30
+  engine_root: ""             # e.g. D:\NewTrunk\Engine\src\Engine
+  engine_bat: "Messiah_Editor.bat"  # relative to engine_root parent dir
+  auto_install_plugin: true   # auto-install plugin when launching engine
+
+export:
+  texture_format: "png"       # png | dds | tga
+  material_format: "json"     # json | xml
+  output_dir: "./output"
